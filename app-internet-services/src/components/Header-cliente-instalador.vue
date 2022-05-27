@@ -36,12 +36,11 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar app>
+    <v-app-bar app class = "transparent">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Application</v-toolbar-title>
+      <v-toolbar-title>Installer&Provider</v-toolbar-title>
     </v-app-bar>
-
     <v-main>
       <!--  -->
     </v-main>
@@ -54,8 +53,8 @@
       return {
         drawer: null,
         items: [
-          { title: 'Dashboard', icon: 'mdi-view-dashboard' },
-          { title: 'Photos', icon: 'mdi-image' },
+          { title: 'Plans', icon: 'mdi-help-box' },
+          { title: 'Instaladores disponíveis', icon: 'mdi-help-box' },
           { title: 'About', icon: 'mdi-help-box' },
         ],
         right: null,

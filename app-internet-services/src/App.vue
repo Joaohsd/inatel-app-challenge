@@ -1,7 +1,7 @@
 <template>
-  <v-app>
-    <HeaderHome />
-    <v-main>
+  <v-app >
+    <HeaderHomeLogin />
+    <v-main >
       <router-view/>
     </v-main>
   
@@ -9,10 +9,15 @@
 </template>
 
 <script>
-import HeaderHome from '@/components/Header-home.vue'
+//import HeaderClienteInstalador from '@/components/Header-cliente-instalador.vue'
+import HeaderHomeLogin from '@/components/Header-home-login.vue'
+
 export default {
     name: "App",
-    components: { HeaderHome },
+    components: {
+    //HeaderClienteInstalador,
+    HeaderHomeLogin,
+},
     data: () => ({
       //
     }),
