@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire">
+  <nav>
     <v-navigation-drawer 
       v-model="drawer"
       app
@@ -24,6 +24,7 @@
         <v-list-item
           v-for="item in items"
           :key="item.title"
+          :to="item.to"
           link
         >
           <v-list-item-icon>
@@ -39,12 +40,9 @@
     <v-app-bar app class = "transparent">
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Installer&Provider</v-toolbar-title>
+      <v-toolbar-title>Installers&Providers</v-toolbar-title>
     </v-app-bar>
-    <v-main>
-      <!--  -->
-    </v-main>
-  </v-app>
+  </nav>
 </template>
 
 <script>
@@ -53,9 +51,9 @@
       return {
         drawer: null,
         items: [
-          { title: 'Plans', icon: 'mdi-help-box' },
-          { title: 'Instaladores disponíveis', icon: 'mdi-help-box' },
-          { title: 'About', icon: 'mdi-help-box' },
+          { title: 'Chamados', icon: 'mdi-access-point-plus' , to: '/calls'},
+          { title: 'Trabalhos', icon: 'mdi-access-point-check', to: '/works' },
+          { title: 'About', icon: 'mdi-help-box', to: '/about-installer' },
         ],
         right: null,
       }
