@@ -9,6 +9,8 @@
           </div>
           <div>
             <v-text-field
+              dark
+              color="aliceblue"
               placeholder="Email"
               hint="joao1234@email.com"
               persistent-hint
@@ -17,6 +19,8 @@
           </div>
           <div id="password-input">
             <v-text-field
+              dark
+              color="aliceblue"
               placeholder="Password"
               hint="Deve conter no mínimo 8 caracteres"
               name="input-10-2"
@@ -31,12 +35,16 @@
               <v-row>
                 <v-checkbox
                   v-model="flagClient"
+                  dark
+                  color="aliceblue"
                   label="Cliente"
                   v-on:click="clientSelected"
                 ></v-checkbox>
                 <v-spacer></v-spacer>
                 <v-checkbox
                   v-model="flagInstaller"
+                  dark
+                  color="aliceblue"
                   label="Instalador"
                   v-on:click="installerSelected"
                 ></v-checkbox>
@@ -44,10 +52,10 @@
               <div class="submit-login">
               <div>
                 <v-btn
+                  dark
+                  class="cyan aliceblue--text"
                   rounded
                   elevation="3"
-                  dark
-                  color="aliceblue"
                   text
                   outlined
                   replace
@@ -129,10 +137,10 @@
   font-family: arial;
   display: grid;
   flex-direction: column;
-  background-color: rgba(0, 187, 212, 0.76);
+  background-color: rgba(12, 11, 11, 0.884);
+  border-radius: 12px;
   width: 300px;
   height: 350px;
-  border-radius: 12px;
 }
 
 #form-title{
@@ -140,7 +148,7 @@
   flex-direction: column;
   flex: 1;
   font-size: 36px;
-  color: aliceblue;
+  color: cyan;
   font-weight: bold;
   justify-content: center;
   align-items: center;
@@ -162,15 +170,13 @@
 }
 
 .submit-login{
-  padding-top: 5px;
+  padding-top: 10px;
   display: flex;
   flex-direction: column;
   flex:1;
   justify-content: center;
   align-items: center;
 }
-
-
 </style>
 
 <style scoped>

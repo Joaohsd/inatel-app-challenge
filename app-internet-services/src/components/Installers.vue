@@ -3,12 +3,7 @@
   <div class="installers">
     <HeaderCliente></HeaderCliente>
     <div class="table">
-      <v-data-table
-        :headers="headers"
-        :items="desserts"
-        hide-default-footer
-        class="elevation-1"
-      ></v-data-table>
+      <GoogleMap />
     </div>
   </div>
     
@@ -16,10 +11,13 @@
 
 <script>
   import HeaderCliente from '@/components/Header-cliente.vue'
+  import GoogleMap from './GoogleMap.vue'
+
   export default {
     components: {
-      HeaderCliente
-    },
+    HeaderCliente,
+    GoogleMap
+},
     data () {
       return {
         headers: [
