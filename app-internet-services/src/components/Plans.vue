@@ -1,0 +1,136 @@
+<template>
+  <div class="plans">
+    <HeaderCliente></HeaderCliente>
+    <div class="planos">
+      <div class="select">
+        <div class="select-state">
+          <v-row align="center">
+            <v-col cols="5">
+              <v-subheader>
+                Selecione o estado
+              </v-subheader>
+            </v-col>
+            <v-col cols="6">
+              <v-select
+                v-model="select"
+                :hint="`${select.state}, ${select.abbr}`"
+                :items="states"
+                item-text="state"
+                item-value="abbr"
+                label="Select"
+                persistent-hint
+                return-object
+                single-line
+                v-on:change="getPlansFromState"
+              ></v-select>
+            </v-col>
+          </v-row>
+        </div>
+      </div>
+      <div class="informacoes">
+          <div class="carrossel">
+              <v-carousel hide-delimiters cycle>
+                <v-carousel-item
+                    v-for="(plano,i) in planos"
+                    :key="i"
+                >
+                  <h4>Plano {{i+1}}</h4>
+                  <v-row>
+                    <h3>Provedor:</h3>
+                    <h3>{{plano.isp}}</h3>
+                  </v-row>
+                  <v-row>
+                    <h3>Capacidade de Dados:</h3>
+                    <h3>{{plano.data_capacity}}</h3>
+                  </v-row>
+                  <v-row>
+                    <h3>Taxa de Download:</h3>
+                    <h3>{{plano.download_speed}}</h3>
+                  </v-row>
+                  <v-row>
+                    <h3>Taxa de Upload:</h3>
+                    <h3>{{plano.upload_speed}}</h3>
+                  </v-row>
+                  <v-row>
+                    <h3>Descrição:</h3>
+                    <h3>{{plano.description}}</h3>
+                  </v-row>
+                  <v-row>
+                    <h3>Mensalidade:</h3>
+                    <h3>R${{plano.price_per_month}}/mês</h3>
+                  </v-row>
+                  <v-row>
+                    <h3>Tipo de internet:</h3>
+                    <h3>{{plano.type_of_internet}}</h3>
+                  </v-row>
+                </v-carousel-item>
+              </v-carousel>
+          </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+  import HeaderCliente from '@/components/Header-cliente.vue'
+  import axios from 'axios'
+  export default {
+    components: {
+      HeaderCliente
+    },
+    data () {
+      return {
+        planos: [{}],
+        select: { state: 'Florida', abbr: 'FL' },
+        states: [
+          { state: 'Minas Gerais', abbr: 'MG' },
+          { state: 'Georgia', abbr: 'GA' },
+          { state: 'Nebraska', abbr: 'NE' },
+          { state: 'California', abbr: 'CA' },
+          { state: 'New York', abbr: 'NY' },
+        ],
+      }
+    },
+    methods:{
+      async getPlansFromState(){
+        const url = 'https://app-challenge-api.herokuapp.com/plans?state='+this.select.abbr;
+        try{
+          axios.get(url).then(response=>(this.planos = response.data))
+        }catch(error){
+          console.log(error)
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  .planos{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .select{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .informacoes{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1;
+  }
+
+  .carrossel{
+    width: 400px;
+    height: 350px;
+  }
+  
+</style>

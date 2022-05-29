@@ -70,7 +70,4 @@
 .v-text-field--outlined >>> fieldset {
   border-color: aliceblue;
 }
-.v-text-field--placeholder >>> fieldset{
-  placeholder-color: aliceblue;
-}
 </style>

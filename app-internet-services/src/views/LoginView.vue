@@ -92,13 +92,13 @@
         console.log("Ativado Cliente")
         this.flagClient = true;
         this.flagInstaller = false;
-        this.route = "ClienteView";
+        this.route = "clients";
       },
       installerSelected(){
         console.log("Ativado Instalador")
         this.flagClient = false;
         this.flagInstaller = true;
-        this.route = "InstallerView";
+        this.route = "installer";
       }
   }
 };
