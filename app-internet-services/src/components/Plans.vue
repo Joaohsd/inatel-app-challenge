@@ -29,42 +29,44 @@
       </div>
       <div class="informacoes">
           <div class="carrossel">
+            <div class="carrossel-int">
               <v-carousel hide-delimiters cycle>
                 <v-carousel-item
                     v-for="(plano,i) in planos"
                     :key="i"
                 >
-                  <h4>Plano {{i+1}}</h4>
+                  <h2>Plano {{i+1}}</h2>
                   <v-row>
-                    <h3>Provedor:</h3>
+                    <h3 id="key-plan">Provedor:</h3>
                     <h3>{{plano.isp}}</h3>
                   </v-row>
                   <v-row>
-                    <h3>Capacidade de Dados:</h3>
+                    <h3 id="key-plan">Capacidade de Dados:</h3>
                     <h3>{{plano.data_capacity}}</h3>
                   </v-row>
                   <v-row>
-                    <h3>Taxa de Download:</h3>
+                    <h3 id="key-plan">Taxa de Download:</h3>
                     <h3>{{plano.download_speed}}</h3>
                   </v-row>
                   <v-row>
-                    <h3>Taxa de Upload:</h3>
+                    <h3 id="key-plan">Taxa de Upload:</h3>
                     <h3>{{plano.upload_speed}}</h3>
                   </v-row>
                   <v-row>
-                    <h3>Descrição:</h3>
+                    <h3 id="key-plan">Descrição:</h3>
                     <h3>{{plano.description}}</h3>
                   </v-row>
                   <v-row>
-                    <h3>Mensalidade:</h3>
+                    <h3 id="key-plan">Preço mensal:</h3>
                     <h3>R${{plano.price_per_month}}/mês</h3>
                   </v-row>
                   <v-row>
-                    <h3>Tipo de internet:</h3>
+                    <h3 id="key-plan">Tipo de internet:</h3>
                     <h3>{{plano.type_of_internet}}</h3>
                   </v-row>
                 </v-carousel-item>
               </v-carousel>
+            </div>
           </div>
       </div>
     </div>
@@ -105,6 +107,13 @@
 </script>
 
 <style>
+  .plans{
+    background-image: url('../assets/backgroundHome.jpg');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+  }
+
   .planos{
     width: 100%;
     height: 100%;
@@ -116,21 +125,44 @@
   .select{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
   }
 
   .informacoes{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
     flex: 1;
+    justify-content: center;
+    align-items: center;
   }
 
-  .carrossel{
-    width: 400px;
-    height: 350px;
+  .carrossel .carrossel-int{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    padding: 25px;
+    width: 430px;
+    height: 520px;
+    border-radius: 12px;
+    background-color: rgba(12, 11, 11, 0.884);
+  }
+
+  .carrossel .carrossel-int #key-plan{
+    color:aliceblue;
+  }
+
+  .carrossel .carrossel-int h2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue
   }
   
+  h3{
+    color:cyan;
+  }
+
 </style>
