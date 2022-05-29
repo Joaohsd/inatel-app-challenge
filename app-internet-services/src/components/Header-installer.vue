@@ -29,13 +29,15 @@
           link
           
         >
+        <v-row>
           <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon left size="25">{{ item.icon }}</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
+        </v-row>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>

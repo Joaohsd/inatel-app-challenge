@@ -8,7 +8,7 @@
         <h3>Digite seu EMAIL abaixo e inicie sua jornada conosco!</h3>
         <div id="email-registry">
           <v-text-field
-          class="custom-placeholer-color"
+            class="custom-placeholer-color"
             v-model="email"
             outlined
             clearable
@@ -18,7 +18,7 @@
             dark
             color="cyan"
           >
-        </v-text-field>
+          </v-text-field>
         </div>
       </div>
     </main>
@@ -34,7 +34,7 @@
     data: () => ({
       email:"",
     }),
-};
+  }
 </script>
 
 <style>

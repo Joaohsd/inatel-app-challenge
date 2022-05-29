@@ -28,13 +28,16 @@
           :to="item.to"
           link
         >
+        <v-row>
           <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
+            <v-icon left size="25">{{ item.icon }}</v-icon>
           </v-list-item-icon>
 
           <v-list-item-content>
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item-content>
+        </v-row>
+
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
@@ -55,11 +58,13 @@
         drawer: null,
         items: [
           { title: 'Planos', icon: 'mdi-access-point' , to: '/plans'},
-          { title: 'Instaladores', icon: 'mdi-account-group', to: '/installers' },
+          { title: 'Instalação', icon: 'mdi-account-group', to: '/maps' },
           { title: 'About', icon: 'mdi-help-box', to: '/about-client' },
         ],
         right: null,
       }
+    },
+    methods:{
     },
   }
 </script>

@@ -6,10 +6,13 @@
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn rounded elevation="3" color="cyan" to="/login" v-on:click="reloadPage">
-        <v-icon left size="25" class="mx-1">login</v-icon>
+        <v-row>
+          <v-icon left size="25" class="mx-1">login</v-icon>
         <v-spacer></v-spacer>
         <span>Entrar</span>
+        </v-row>
       </v-btn>
+      
     </v-app-bar>
   </nav>
 </template>

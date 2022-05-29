@@ -60,6 +60,7 @@ const routes = [
   {
     path: '/installers',
     name: 'installers',
+    props: true,
     // route level code-splitting
     // this generates a separate chunk (installers.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
@@ -82,6 +83,14 @@ const routes = [
     // this generates a separate chunk (installers.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "installers" */ '../components/Works.vue')
+  },
+  {
+    path: '/maps',
+    name: 'maps',
+    // route level code-splitting
+    // this generates a separate chunk (installers.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "installers" */ '../components/MapServices.vue')
   }
 ]
 

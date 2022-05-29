@@ -26,46 +26,48 @@
                   <v-carousel-item v-for="(plano, i) in planos" :key="i">
                     <div class="plan-title-link">
                       <div class="plan-title">
-                        <v-row>
-                        <v-icon dark>login</v-icon>
-                        <h2>Plano {{ i + 1 }}</h2>
-                      </v-row>
+                        <v-list-item to="installers" v-on:click="passPlan(plano.id)">
+                          <v-row>
+                            <v-icon dark>login</v-icon>
+                            <h2>Plano {{ i + 1 }}</h2>
+                          </v-row>
+                        </v-list-item>
                       </div>
                     </div>
                     <v-row>
                       <h3 id="key-plan">Provedor:</h3>
-                      <h3 v-if="plano.isp">{{ plano.isp }}</h3>
-                      <h3 v-else>Sem nome</h3>
+                      <h3 id="value-plan" v-if="plano.isp">{{ plano.isp }}</h3>
+                      <h3 id="value-plan" v-else>Sem nome</h3>
                     </v-row>
                     <v-row>
                       <h3 id="key-plan">Capacidade de Dados:</h3>
-                      <h3 v-if="plano.data_capacity">{{ plano.data_capacity }}</h3>
-                      <h3 v-else>0</h3>
+                      <h3 id="value-plan" v-if="plano.data_capacity">{{ plano.data_capacity }}</h3>
+                      <h3 id="value-plan" v-else>0</h3>
                     </v-row>
                     <v-row>
                       <h3 id="key-plan">Taxa de Download:</h3>
-                      <h3 v-if="plano.download_speed">{{ plano.download_speed }}</h3>
-                      <h3 v-else>0</h3>
+                      <h3 id="value-plan" v-if="plano.download_speed">{{ plano.download_speed }}</h3>
+                      <h3 id="value-plan" v-else>0</h3>
                     </v-row>
                     <v-row>
                       <h3 id="key-plan">Taxa de Upload:</h3>
-                      <h3 v-if="plano.upload_speed">{{ plano.upload_speed }}</h3>
-                      <h3 v-else>0</h3>
+                      <h3 id="value-plan" v-if="plano.upload_speed">{{ plano.upload_speed }}</h3>
+                      <h3 id="value-plan" v-else>0</h3>
                     </v-row>
                     <v-row>
                       <h3 id="key-plan">Descrição:</h3>
-                      <h3 v-if="plano.description">{{ plano.description }}</h3>
-                      <h3 v-else>Sem Descrição</h3>
+                      <h3 id="value-plan" v-if="plano.description">{{ plano.description }}</h3>
+                      <h3 id="value-plan" v-else>Sem Descrição</h3>
                     </v-row>
                     <v-row>
                       <h3 id="key-plan">Preço mensal:</h3>
-                      <h3 v-if="plano.price_per_month">R${{ plano.price_per_month }}/mês</h3>
-                      <h3 v-else>R$0/mês</h3>
+                      <h3 id="value-plan" v-if="plano.price_per_month">R${{ plano.price_per_month }}/mês</h3>
+                      <h3 id="value-plan" v-else>R$0/mês</h3>
                     </v-row>
                     <v-row>
                       <h3 id="key-plan">Tipo de internet:</h3>
-                      <h3 v-if="plano.type_of_internet">{{ plano.type_of_internet }}</h3>
-                      <h3 v-else>Sem tipo</h3>
+                      <h3 id="value-plan" v-if="plano.type_of_internet">{{ plano.type_of_internet }}</h3>
+                      <h3 id="value-plan" v-else>Sem tipo</h3>
                     </v-row>
                   </v-carousel-item>
                 </v-carousel>
@@ -75,7 +77,7 @@
           <div v-else class="informacoes-else">
             <div class="carrossel">
               <div class="carrossel-int">
-                <h2>Sem Planos</h2>
+                <h3>Planos indisponíveis para essa região.</h3>
               </div>
             </div>
           </div>
@@ -87,6 +89,7 @@
 
 <script>
 import HeaderCliente from '@/components/Header-cliente.vue'
+import router from '@/router';
 import axios from 'axios'
 
 export default {
@@ -121,6 +124,14 @@ export default {
         return;
       }
       this.existsPlans = true;
+    },
+    passPlan(planId){
+      router.push({
+        name:'installers',
+        params:{
+          plan:planId
+        }
+      })
     }
   }
 }
@@ -199,7 +210,20 @@ export default {
   color: aliceblue
 }
 
-h3 {
+.informacoes-else .carrossel .carrossel-int{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: auto 1;
+  color: cyan;
+}
+
+.plan-title-link h2{
+  color: aliceblue;
+}
+
+#value-plan{
   color: cyan;
 }
 </style>

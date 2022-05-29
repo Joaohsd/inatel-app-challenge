@@ -94,7 +94,7 @@
     },
     methods : {
       submit:function(){
-        location.reload()
+        location.reload();
       },
       clientSelected(){
         console.log("Ativado Cliente")
@@ -108,7 +108,7 @@
         this.flagInstaller = true;
         this.route = "installer";
       }
-  }
+    }
 };
 </script>
 
