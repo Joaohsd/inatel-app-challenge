@@ -10,7 +10,7 @@
                 <v-carousel-item v-for="(installer, i) in installers" :key="i">
                   <div class="installer-title-link">
                     <div class="installer-title">
-                      <v-list-item to="installers" v-on:click="passPlan(installer.id)">
+                      <v-list-item to="maps" v-on:click="passPlan(installer.id)">
                         <v-row>
                           <v-icon dark>login</v-icon>
                           <h2>Instalador {{ i + 1 }}</h2>
@@ -109,6 +109,7 @@ export default {
 .carrossel .carrossel-int {
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
   padding: 25px;
   width: 430px;

@@ -1,8 +1,8 @@
 <template>
   <nav class="nav">
     <v-app-bar class="pa-0" app dark>
-      <v-toolbar-title class="text-uppercase">
-        <a href="/" style="text-decoration: none;color: aliceblue;">Installer&Provider</a>
+      <v-toolbar-title>
+        <a href="/" style="text-decoration: none;color: aliceblue;"><span id="ex">C</span>onnect<span id="ex">I</span>&<span id="ex">P</span></a>
       </v-toolbar-title>
     </v-app-bar>
   </nav>
@@ -22,5 +22,10 @@
 </script>
 
 <style>
+
+#ex{
+  color:cyan;
+  font-weight: bold;
+}
 
 </style>
